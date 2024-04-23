@@ -1,0 +1,16 @@
+.buttonPrimary {
+    width: fit-content;
+    padding: $xs $m;
+    margin: $r 0;
+    background-color: $color-secondary;
+    color: $color-font-primary-variant;
+    border-radius: $rounded-corner;
+    border: none;
+    font-family: $font-primary;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: darken($color-secondary, 10%); 
+        box-shadow: $shadow;
+    }
+}

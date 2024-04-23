@@ -1,0 +1,22 @@
+.addUpdate {
+    padding: $m 0;
+    box-shadow: $shadow;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // z-index: $zbarAdd;
+    margin-top: $height-header;
+    .container {
+        display: flex;
+        justify-content: center;
+        width: $width-container-content;
+        h2{
+            font-size: 2rem;
+            font-weight: 300;
+        }
+        .contentFields {
+            display: flex;
+            column-gap: $gutter;
+        }
+    }
+}

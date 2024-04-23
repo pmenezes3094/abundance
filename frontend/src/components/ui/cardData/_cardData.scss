@@ -1,0 +1,39 @@
+.cardData {
+    padding: $s;
+    margin: $s 0;
+    box-shadow: $shadow;
+    border-radius: $rounded-corner;
+    text-align: center;
+    break-inside: avoid;
+    overflow: hidden;
+    .card{
+        cardActions
+        img {
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+            padding-bottom: $s;
+        }
+    
+        p {
+            width: 100%;
+            word-break: break-all;
+            padding-bottom: $s;
+            color: $color-font-accent;
+            font-family: $font-tertiary;
+            font-size: 2rem;
+            line-height: 40px;
+        }
+    
+        a {
+            width: 100%;
+            word-break: break-all;
+            padding-bottom: $s;
+            color: $color-font-action;
+        }
+        .cardActions {
+            padding: $s 0;
+        }
+    }
+    
+}

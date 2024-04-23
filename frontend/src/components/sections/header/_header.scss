@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    align-items: center;
+    padding: $s 0;
+    box-shadow: $shadow;
+    position: sticky;
+    z-index: $zheader;
+    top: 0;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .addActions {
+            display: flex;
+            justify-content: end;
+            gap: $gutter;
+            padding: $s 0;
+        }
+        .systemActions {
+            display: flex;
+            justify-content: flex-end;
+            gap: $gutter;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        .container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .addActions, .systemActions {
+                justify-content: center;
+            }
+        }
+    }
+}

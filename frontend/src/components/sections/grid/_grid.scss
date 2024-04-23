@@ -1,0 +1,18 @@
+.grid {
+    columns: 6;
+    column-gap: $gutter;
+    max-width: 100%;
+    padding: $m 0;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        columns: 3;
+    }
+}
+
+@media (max-width: 400px) {
+    .grid {
+        columns: 1;
+    }
+}

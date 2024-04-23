@@ -1,0 +1,22 @@
+.formField {
+    padding: $s 0;
+    textarea, input {
+        background-color: $color-surface;
+        border: none;
+        border-bottom: $border-weight $border-style $color-secondary;
+        border-top-left-radius: $rounded-corner;
+        border-top-right-radius: $rounded-corner;
+        margin-top: $xxs ;
+
+        &:hover {
+            box-shadow: $shadow;
+        }
+
+    }
+}
+
+::placeholder {
+    font-family: $font-primary;
+    font-style: italic;
+    padding: $xs 0 0 $xs ;
+}

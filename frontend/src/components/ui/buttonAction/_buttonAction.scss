@@ -1,0 +1,15 @@
+.buttonIcon {
+    width: $m;
+    height: $m;
+    background-color: transparent;
+    border: none;
+    svg {
+        width: $s;
+        height: $s;
+    }
+    &:hover {
+        // background-color: $color-accent-light;
+        border-radius: $rounded-corner;
+        box-shadow: $shadow;
+    }
+}

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sacramento&display=swap');
+
+//Shadow
+$shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+//typography
+$font-primary: "Poppins", sans-serif;
+$font-secondary: "Crimson Pro", serif;
+$font-tertiary: "Sacramento", cursive;
+
+//font size
+$type-size-base: 16px;
+
+//spacings and sizes
+    //layout
+    $gutter: 24px;
+    $page-margin: 50px;
+
+    //Vertical and horizontal spacings
+    $null: 0;
+    $xxxs: 2px;
+    $xxs: 4px;
+    $xs: 8px;
+    $s: 16px;
+    $r: 24px;
+    $m: 36px;
+    $l: 48px;
+    $xl: 60px;
+    $xxl: 96px;
+    $xxxl: 144px;
+
+//colors
+    //theme colors
+    $color-primary-light: #B19ABD;
+    $color-primary: #875A9E;
+    $color-primary-dark: #5C227A;
+
+    $color-secondary-light: #E898B7;
+    $color-secondary: #DA588A;
+    $color-secondary-dark: #A3577B;
+
+    $color-accent-light: #F9D8D1;
+    $color-accent: #F6C0B4;
+    $color-accent-dark: #B98579;
+
+    $color-error-light: #F2C5C4;
+    $color-error: #C60000;
+
+    $color-outline-light: #cccccc;
+    $color-outline: #666666;
+    $color-outline-dark: #333333;
+
+    //background and surface colors
+    $color-surface-light: #ffffff;
+    $color-surface: #f8f8f8;
+    $color-surface-dark: #333333;
+
+    $color-background: #ffffff;
+
+    //typography colors
+    $color-font-primary: #333333;
+    $color-font-primary-variant: #ffffff;
+    $color-font-secondary: #666666;
+    $color-font-action: #DA588A;
+    $color-font-accent: #875A9E;
+
+    
+
+//component styling
+$rounded-corner: 8px;
+
+//border
+$border-weight: 2px;
+$border-style: solid;
+$border: $border-weight $border-style $color-outline;
+
+//widths
+$width-container-content: 800px;
+$width-container: 100%;
+
+//heights
+$height-header: $xxl;
+
+
+
+
+
+
+
+
+
