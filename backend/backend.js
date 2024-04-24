@@ -5,28 +5,13 @@ import multer from "multer"
 import Parser from 'rss-parser';
 
 const app = express()
+const parser = new Parser();
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
     database:"pa"
 })
-
-const feedURL="https://netflixtechblog.com/feed";
-let articles = [];
-const parser = new Parser();
-const parse = async url => {
-  const feed = await parser.parseURL(url);
-  feed.items.forEach(item=>{
-    articles.push({item})
-  })
-}
-parse(feedURL);
-
-app.get("/rss",(req, res)=>{
-  res.send(articles);
-})
-
 
 app.use('/uploads', express.static('uploads'));
 
@@ -66,6 +51,10 @@ app.post('/upload', upload.single('file'), (req, res) => {
       }
   });
 });
+
+app.get("/",(req, res)=>{
+    res.json("hello this is the backend!")
+})
 
 app.get("/dashboard", (req,res)=>{
     const q = "select * from data"
@@ -128,6 +117,38 @@ app.put("/dashboard/:id", (req, res) => {
 });
 
 
+app.get("/rss", (req, res) => {
+  const q = "SELECT data_content FROM data WHERE data_type = 'rss'";
+  db.query(q, (err, data) => {
+      if (err) {
+          console.error("Error selecting RSS data from database:", err);
+          res.status(500).json({ error: "Error selecting RSS data from database" });
+      } else {
+          const rssUrls = data.map(item => item.data_content);
+          console.log("RSS URLs:", rssUrls);
+          Promise.all(rssUrls.map(url => parseRSS(url)))
+              .then(results => {
+                  const allItems = results.flat();
+                  res.send(allItems);
+                  console.log("All RSS feeds fetched and sent successfully.");
+              })
+              .catch(error => {
+                  console.error("Error fetching or sending RSS feeds:", error);
+                  res.status(500).json({ error: "Error fetching or sending RSS feeds" });
+              });
+      }
+  });
+});
+
+const parseRSS = async (url) => {
+  try {
+      const feed = await parser.parseURL(url);
+      return feed.items;
+  } catch (error) {
+      console.error("Error parsing or fetching RSS feed:", error);
+      throw error;
+  }
+};
 
 
 

@@ -6,6 +6,8 @@ import IconImage from "../../icons/IconImage";
 import IconVideo from "../../icons/IconVideo";
 import IconAudio from "../../icons/IconAudio";
 import IconFile from "../../icons/IconFile";
+import IconAdd from "../../icons/IconAdd";
+
 
 const Header = () => {
   return (
@@ -22,8 +24,8 @@ const Header = () => {
             <ButtonIcon IconComponent={IconVideo} label="AddVideo" pageroute="/addVideo" tooltip="Add Video"/>
             <ButtonIcon IconComponent={IconAudio} label="AddAudio" pageroute="/addAudio" tooltip="Add Audio"/>
             <ButtonIcon IconComponent={IconFile} label="AddFile" pageroute="/addFile" tooltip="Add File"/>
-            {/* <ButtonIcon IconComponent={IconAdd} label="AddRSS" pageroute="/addRSS" tooltip="Add RSS"/>
-            <ButtonIcon IconComponent={IconAdd} label="AddAPI" pageroute="/addAPI" tooltip="Add API"/> */}
+            <ButtonIcon IconComponent={IconAdd} label="AddRSS" pageroute="/addRSS" tooltip="Add RSS"/>
+            {/* <ButtonIcon IconComponent={IconAdd} label="AddAPI" pageroute="/addAPI" tooltip="Add API"/> */}
           </nav>
           {/* <nav className="systemActions">
             <ButtonIcon IconComponent={IconAdd} label="Search" pageroute="/search"/>

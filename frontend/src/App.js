@@ -8,7 +8,7 @@ import AddImage from './components/pages/AddImage';
 import AddVideo from './components/pages/AddVideo';
 import AddAudio from './components/pages/AddAudio';
 import AddFile from './components/pages/AddFile';
-// import AddRss from './components/pages/AddRss';
+import AddRss from './components/pages/AddRss';
 // import AddApi from './components/pages/AddApi';
 
 import UpdateText from './components/pages/UpdateText';
@@ -36,7 +36,7 @@ function App() {
             <Route path="/addVideo" element={<AddVideo/>} />
             <Route path="/addAudio" element={<AddAudio/>} />
             <Route path="/addFile" element={<AddFile/>} />
-            {/* <Route path="/addRss" element={<AddRss/>} /> */}
+            <Route path="/addRss" element={<AddRss/>} />
             {/* <Route path="/addApi" element={<AddApi/>} /> */}
 
             <Route path="/updateText/:id" element={<UpdateText/>} />

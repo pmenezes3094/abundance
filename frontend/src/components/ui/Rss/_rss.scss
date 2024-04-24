@@ -1,0 +1,13 @@
+.feedLink {
+    margin: $s 0;
+    padding: $s;
+    border-radius: $rounded-corner;
+    a {
+        font-size: 0.8rem;
+        
+    }
+    &:hover {
+        box-shadow: $shadow;
+        padding: $s;
+    }
+}

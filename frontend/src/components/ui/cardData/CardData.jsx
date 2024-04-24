@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import Modal from '../modal/Modal'; // Import your Modal component
+import axios from 'axios';
+import Modal from '../modal/Modal';
 import ButtonIcon from '../buttonIcon/ButtonIcon';
 import ButtonAction from '../buttonAction/ButtonAction';
 import IconLinkType from "../../icons/IconLinkType";
 import IconFileType from "../../icons/IconFileType";
 import IconEdit from "../../icons/IconEdit";
 import IconDelete from "../../icons/IconDelete";
-import axios from "axios";
+import Rss from '../../ui/Rss/Rss';
 
 const CardData = ({ id, data, type }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +23,7 @@ const CardData = ({ id, data, type }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:8800/dashboard/${id}`);
-      window.location.reload()
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -57,8 +58,7 @@ const CardData = ({ id, data, type }) => {
   
     return `${name}.${extension}`;
   };
-  
-  // Render different elements based on the 'type' prop
+
   let content;
   let updateroute;
   switch (type) {
@@ -66,7 +66,7 @@ const CardData = ({ id, data, type }) => {
       content = <p>{data}</p>;
       updateroute = `/updateText/${id}`;
       break;
-      case 'link':
+    case 'link':
       content = <div><IconLinkType /><a href={data} target='_blank' rel='noopener noreferrer'>{getWebsiteName(data)}</a></div>;
       updateroute = `/updateLink/${id}`;
       break;
@@ -86,28 +86,31 @@ const CardData = ({ id, data, type }) => {
       content = <div><IconFileType /><a href={`http://localhost:8800/${data}`} download>{getFileName(data)}</a></div>;
       updateroute = `/updateFile/${id}`;
       break;
+    case 'rss':
+      content = <Rss feedUrl={data} />;
+      updateroute = `/updateFile/${id}`;
+      break;
     default:
       content = <p>{data}</p>;
   }
 
   return (
     <>
-  <div className='cardData'>
-    <div className='card' onClick={openModal}>
-      {content}
-      <div className="cardActions">
-        <ButtonAction IconComponent={IconDelete} label="Delete" clickFunction={handleDelete} tooltip="Delete Card"/>
-        <ButtonIcon IconComponent={IconEdit} label="Update" pageroute={updateroute} tooltip="Update Content"/>
+      <div className='cardData'>
+        <div className='card' onClick={openModal}>
+          {content}
+          <div className="cardActions">
+            <ButtonAction IconComponent={IconDelete} label="Delete" clickFunction={handleDelete} tooltip="Delete Card"/>
+            <ButtonIcon IconComponent={IconEdit} label="Update" pageroute={updateroute} tooltip="Update Content"/>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <Modal isOpen={isModalOpen} closeModal={closeModal}>
-    <div className='modalContent'>
-      {content}
-    </div>
-  </Modal>
-</>
-
+      <Modal isOpen={isModalOpen} closeModal={closeModal}>
+        <div className='modalContent'>
+          {content}
+        </div>
+      </Modal>
+    </>
   );
 };
 

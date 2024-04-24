@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+Rss.jsx
 
 # production
 /build
