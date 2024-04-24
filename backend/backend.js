@@ -5,13 +5,28 @@ import multer from "multer"
 import Parser from 'rss-parser';
 
 const app = express()
-const parser = new Parser();
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
     database:"pa"
 })
+
+const feedURL="https://netflixtechblog.com/feed";
+let articles = [];
+const parser = new Parser();
+const parse = async url => {
+  const feed = await parser.parseURL(url);
+  feed.items.forEach(item=>{
+    articles.push({item})
+  })
+}
+parse(feedURL);
+
+app.get("/rss",(req, res)=>{
+  res.send(articles);
+})
+
 
 app.use('/uploads', express.static('uploads'));
 
@@ -51,10 +66,6 @@ app.post('/upload', upload.single('file'), (req, res) => {
       }
   });
 });
-
-app.get("/",(req, res)=>{
-    res.json("hello this is the backend!")
-})
 
 app.get("/dashboard", (req,res)=>{
     const q = "select * from data"
